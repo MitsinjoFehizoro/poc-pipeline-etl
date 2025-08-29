@@ -1,7 +1,5 @@
 from pyspark.sql import DataFrame, functions as func
 
-from etl.constant.categories import categories
-
 
 def fill_first_item(df_data: DataFrame, category: str) -> DataFrame:
     return (
