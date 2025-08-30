@@ -1,7 +1,7 @@
 from pyspark.sql import DataFrame, functions as func
 
 
-def fill_first_item(df_data: DataFrame, category: str) -> DataFrame:
+def fill_first_item(df_data: DataFrame,categories : dict,  category: str) -> DataFrame:
     return (
         df_data.join(
             categories.get(category).get("df").alias("cat"),
@@ -20,7 +20,7 @@ def fill_first_item(df_data: DataFrame, category: str) -> DataFrame:
     )
 
 
-def fill_item(df_data: DataFrame, category: str) -> DataFrame:
+def fill_item(df_data: DataFrame, categories : dict, category: str) -> DataFrame:
     return (
         df_data.join(
             categories.get(category).get("df").alias("cat"),
